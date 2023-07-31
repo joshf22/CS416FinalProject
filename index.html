@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Interactive Slideshow</title>
+  <style>
+    /* Add some basic styling for the body */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Style for the title */
+    .title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    /* Style for the container that holds the charts */
+    .chart-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Style for each individual chart container */
+    .chart {
+      margin: 20px;
+    }
+
+    /* Style for the buttons */
+    .btn-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .btn {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background-color: #007BFF;
+      color: #FFF;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Tooltip styling */
+    .tooltip {
+      position: absolute;
+      padding: 10px;
+      background-color: #000;
+      color: #FFF;
+      border-radius: 4px;
+      pointer-events: none;
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Your HTML content for the slideshow -->
+  <div class="title">Journey Across Nations: An Insight Into Global Health and Economy</div>
+  <!-- Buttons for each scene -->
+  <div class="btn-container">
+    <button class="btn" id="btnScene1">Page 1</button>
+    <button class="btn" id="btnScene2">Page 2</button>
+    <button class="btn" id="btnScene3">Page 3</button>
+  </div>
+
+  <div class="chart-container">
+    <!-- Scene 1 chart -->
+    <div id="scene1" class="chart" style="display: none;"></div>
+    <!-- Scene 2 chart -->
+    <div id="scene2" class="chart" style="display: none;"></div>
+    <!-- Scene 3 chart -->
+    <div id="scene3" class="chart" style="display: none;"></div>
+  </div>
+
+  <!-- Include D3.js library -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- Include your main.js file -->
+  <script src="main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      // Event listeners for the buttons to show respective scenes
+      const btnScene1 = document.getElementById("btnScene1");
+      const btnScene2 = document.getElementById("btnScene2");
+      const btnScene3 = document.getElementById("btnScene3");
+
+      btnScene1.addEventListener("click", function () {
+        // Show Scene 1 and hide other scenes
+        document.getElementById("scene1").style.display = "block";
+        document.getElementById("scene2").style.display = "none";
+        document.getElementById("scene3").style.display = "none";
+      });
+
+      btnScene2.addEventListener("click", function () {
+        // Show Scene 2 and hide other scenes
+        document.getElementById("scene1").style.display = "none";
+        document.getElementById("scene2").style.display = "block";
+        document.getElementById("scene3").style.display = "none";
+      });
+
+      btnScene3.addEventListener("click", function () {
+        // Show Scene 3 and hide other scenes
+        document.getElementById("scene1").style.display = "none";
+        document.getElementById("scene2").style.display = "none";
+        document.getElementById("scene3").style.display = "block";
+      });
+
+      // Show Scene 1 by default when the slideshow is initialized
+      document.getElementById("scene1").style.display = "block";
+      document.getElementById("scene2").style.display = "none";
+      document.getElementById("scene3").style.display = "none";
+    });
+  </script>
+
+<style>
+    /* ... (existing CSS code) ... */
+  
+    /* Add some additional styling for the layout */
+    .title {
+      text-align: center;
+      font-size: 30px; /* Increase the font size for a bigger title */
+      font-weight: bold; /* Make the title bold */
+      font-family: Futura, Arial, sans-serif; /* Set the font-family to Futura */
+      margin-bottom: 20px;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+  
+    .chart {
+      max-width: 800px;
+      margin: 20px auto; /* Center the charts */
+    }
+  
+    .chart h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  
+    /* Adjust the bottom margin of the Scene 1 SVG container to accommodate the x-axis labels */
+    #scene1 {
+      margin-bottom: 80px; /* Increase this value to provide more space for the x-axis labels */
+      overflow: visible; /* Add this to ensure content is not clipped */
+    }
+  </style>
+</body>
+
+</html>
