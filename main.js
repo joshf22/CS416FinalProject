@@ -107,7 +107,7 @@ function createInteractiveSlideshow(data) {
         annotationsGroup.append("rect")
             .attr("class", "annotation-box")
             .attr("x", textBoxX)
-            .attr("y", textBoxY)
+            .attr("y", -2)
             .attr("width", textBoxWidth)
             .attr("height", textBoxHeight)
             .attr("fill", "#f0f0f0") // Light grey background color
@@ -125,7 +125,7 @@ function createInteractiveSlideshow(data) {
             .append("foreignObject")
             .attr("class", "annotation-text-container")
             .attr("x", textBoxX + 10) // Position the text inside the box with a 10px margin from the left
-            .attr("y", textBoxY + 10) // Position the text with a 10px margin from the top
+            .attr("y", 0) // Position the text with a 10px margin from the top
             .attr("width", textBoxWidth - 20) // Adjust the width to account for margins
             .attr("height", textBoxHeight - 25); // Adjust the height to account for margins
         
